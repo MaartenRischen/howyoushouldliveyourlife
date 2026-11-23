@@ -32,3 +32,27 @@ ul{padding:0;list-style:none}
 @media (min-width:1080px){
   .tiles{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
+
+/* group names between the rules (23 Nov 2026) */
+.grp{max-width:calc(var(--read) + 50px);margin:26px 0 0;padding:0 0 8px;border-bottom:1px solid var(--rule);font:500 var(--t-label)/1.35 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.grp:first-child{margin-top:0}
+
+/* the ladder under each rule: shut it shows one button, open it shows the next-best steps down to the first step */
+.lad{margin-top:15px}
+.lad>summary{display:block;list-style:none;cursor:pointer}
+.lad>summary::-webkit-details-marker{display:none}
+.lad>summary:focus-visible{outline:2.5px solid var(--teal);outline-offset:4px;border-radius:2px}
+.lad-btn{display:inline-block;border:1px solid var(--teal);border-radius:4px;padding:10px 13px 9px;color:var(--teal-deep);font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.lad-btn::after{content:" +"}
+.lad[open] .lad-btn::after{content:" \2212"}
+.lad>summary:hover .lad-btn{background:var(--teal);color:var(--parchment-soft)}
+.lad-o,.lad[open] .lad-c{display:none}
+.lad[open] .lad-o{display:inline}
+.lad-l{margin:14px 0 0;padding:0;list-style:none;border-top:1px solid var(--rule)}
+.lad-l li{display:grid;grid-template-columns:minmax(0,1fr);gap:5px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.lad-k{font:500 var(--t-label)/1.35 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+.lad-t{font:400 var(--t-body)/1.5 var(--serif)}
+.lad-n{margin:12px 0 0;font:400 var(--t-body)/1.5 var(--serif);color:var(--oxblood-warm)}
+@media (min-width:720px){
+  .lad-l li{grid-template-columns:118px minmax(0,1fr);gap:16px;align-items:baseline}
+}
